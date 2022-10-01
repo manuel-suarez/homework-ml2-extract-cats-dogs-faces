@@ -24,4 +24,6 @@ for file in files:
         # extract and save the ROI
         fname = os.path.join(save_path, 'files', name + '.face' + ext)
         print(fname)
-        cv2.imwrite(fname, img_rgb[y - (c%y):y + h + c, x - (c%x):x + w + c])
+        x1 = x - c if x > c else x1 = x
+        y1 = y - c if y > c else y1 = y
+        cv2.imwrite(fname, img_rgb[y1:y + h + c, x1:x + w + c])
