@@ -17,7 +17,8 @@ for file in files[:5]:
     # for (length,breadth,width,height) in detectedFaces:
     for (x, y, w, h) in detectedFaces:
         cv2.rectangle(img_rgb, (x - c - 1, y - c - 1), (x + w + c + 1, y + h + c + 1), (255, 0, 0), 1)
-        (name, ext) = os.path.splitext(file)
-        print(name, ext)
+        (path, ext) = os.path.splitext(file)
+        name = path.split("/")[-1]
+        print(path, name, ext)
         # extract and save the ROI
         # cv2.imwrite(os.path.join(name, '.face', ext), img_rgb[y - c:y + h + c, x - c:x + w + c])
