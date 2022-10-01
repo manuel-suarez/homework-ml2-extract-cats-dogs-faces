@@ -20,6 +20,8 @@ for file in files[:5]:
         cv2.rectangle(img_rgb, (x - c - 1, y - c - 1), (x + w + c + 1, y + h + c + 1), (255, 0, 0), 1)
         (path, ext) = os.path.splitext(file)
         name = path.split("/")[-1]
-        print(path, name, ext)
+        # print(path, name, ext)
         # extract and save the ROI
-        cv2.imwrite(os.path.join(save_path, 'files', name, '.face', ext), img_rgb[y - c:y + h + c, x - c:x + w + c])
+        fname = os.path.join(save_path, 'files', name, '.face', ext)
+        print(fname)
+        cv2.imwrite(fname, img_rgb[y - c:y + h + c, x - c:x + w + c])
