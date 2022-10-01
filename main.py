@@ -18,9 +18,5 @@ for file in files[:5]:
     for (x, y, w, h) in detectedFaces:
         cv2.rectangle(img_rgb, (x - c - 1, y - c - 1), (x + w + c + 1, y + h + c + 1), (255, 0, 0), 1)
         (name, ext) = os.path.splitext(file)
-        print(name, ext)
-
-        # extract the file name and extension
-        # file_name = split_tup[0]
-        #file_extension = split_tup[1]
-        #cv2.imwrite('roi.png', img_rgb[y - c:y + h + c, x - c:x + w + c])
+        # extract and save the ROI
+        cv2.imwrite(os.path.join(name, '.face', ext), img_rgb[y - c:y + h + c, x - c:x + w + c])
