@@ -21,4 +21,4 @@ for file in files[:5]:
         name = path.split("/")[-1]
         print(path, name, ext)
         # extract and save the ROI
-        # cv2.imwrite(os.path.join(name, '.face', ext), img_rgb[y - c:y + h + c, x - c:x + w + c])
+        cv2.imwrite(os.path.join(name, '.face', ext), img_rgb[y - c:y + h + c, x - c:x + w + c])
