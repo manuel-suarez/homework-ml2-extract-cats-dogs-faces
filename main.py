@@ -9,7 +9,7 @@ print(len(files))
 
 c = 20
 faceCascade = cv2.CascadeClassifier("haarcascade_frontalcatface.xml")
-for file in files[:5]:
+for file in files:
     img_bgr = cv2.imread(file, 1)
     img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
 
