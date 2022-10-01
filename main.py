@@ -3,6 +3,7 @@ import glob
 import cv2
 
 local_path = '/home/est_posgrado_manuel.suarez/data/dogs-vs-cats'
+save_path = '/home/est_posgrado_manuel.suarez/homeworks/homework-ml2-extract-cats-dogs-faces'
 files = glob.glob(os.path.join(local_path, 'train', '*.*.jpg'))
 print(len(files))
 
@@ -21,4 +22,4 @@ for file in files[:5]:
         name = path.split("/")[-1]
         print(path, name, ext)
         # extract and save the ROI
-        cv2.imwrite(os.path.join(name, '.face', ext), img_rgb[y - c:y + h + c, x - c:x + w + c])
+        cv2.imwrite(os.path.join(save_path, 'files', name, '.face', ext), img_rgb[y - c:y + h + c, x - c:x + w + c])
