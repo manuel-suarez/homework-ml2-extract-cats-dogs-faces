@@ -22,6 +22,6 @@ for file in files[:5]:
         name = path.split("/")[-1]
         # print(path, name, ext)
         # extract and save the ROI
-        fname = os.path.join(save_path, 'files', name, '.face', ext)
+        fname = os.path.join(save_path, 'files', name + '.face' + ext)
         print(fname)
         cv2.imwrite(fname, img_rgb[y - c:y + h + c, x - c:x + w + c])
