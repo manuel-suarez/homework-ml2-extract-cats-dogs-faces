@@ -17,11 +17,11 @@ for file in files:
     print(file, detectedFaces)
     # for (length,breadth,width,height) in detectedFaces:
     for (x, y, w, h) in detectedFaces:
-        cv2.rectangle(img_rgb, (x - c - 1, y - c - 1), (x + w + c + 1, y + h + c + 1), (255, 0, 0), 1)
+        # cv2.rectangle(img_rgb, (x - c - 1, y - c - 1), (x + w + c + 1, y + h + c + 1), (255, 0, 0), 1)
         (path, ext) = os.path.splitext(file)
         name = path.split("/")[-1]
         # print(path, name, ext)
         # extract and save the ROI
         fname = os.path.join(save_path, 'files', name + '.face' + ext)
         print(fname)
-        cv2.imwrite(fname, img_rgb[y - c:y + h + c, x - c:x + w + c])
+        cv2.imwrite(fname, img_rgb[y - (c%y):y + h + c, x - (c%x):x + w + c])
